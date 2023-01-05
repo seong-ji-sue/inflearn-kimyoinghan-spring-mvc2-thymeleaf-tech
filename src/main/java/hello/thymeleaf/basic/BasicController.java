@@ -106,7 +106,21 @@ public class BasicController {
     public String attribute (Model model) {
         return "basic/attribute";
     }
-    
+
+    @GetMapping("/each")
+    public String each (Model model) {
+        addUsers(model);
+        return "basic/each";
+    }
+
+    //반복문을 처리할 예제 코드
+    private static void addUsers(Model model) {
+        ArrayList<Object> list = new ArrayList<>();
+        list.add(new User("UserA",10));
+        list.add(new User("UserB",10));
+        list.add(new User("UserC",10));
+        model.addAttribute("users",list);
+    }
 
 
 }
